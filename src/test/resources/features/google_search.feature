@@ -6,4 +6,4 @@ Característica: Google Search
 
   Escenario: Buscar devco
     Cuando Pepe busca Devco en Google Search
-    Entonces debe ver como primer resultado www.devco.com.co
+    Entonces debe ver como primer resultado www.devco.com.co.prueba
