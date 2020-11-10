@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
 		features = "src/test/resources/features/PetBook.feature",
 		glue = {"co.com.devco.stepdefinitions"},
-        tags = "@testCase1",
+        tags = "@testCase4",
 		snippets = SnippetType.CAMELCASE
 )
 public class PetbookRunner {

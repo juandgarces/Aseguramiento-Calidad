@@ -10,8 +10,8 @@ public class PetbookHomePage {
             located(By.xpath("//div[@class='col-sm-12 btn btn-primary']"));
 	public static final Target BT_PERRO = Target.the("Boton para filtro de perro").
             located(By.xpath("//*[text()= 'Perro']"));
-    public static final Target NUM_ELEMENT = Target.the("Ciudad de Destino").
-            located(By.xpath("count(//ul/li[namespace-uri()='_ngcontent-upw-c47'])"));
+    public static final Target BT_GATO = Target.the("Boton para filtro de gato").
+            located(By.xpath("//*[text()= 'Gato']"));
     public static final Target INPUT_FECHA_SALIDA = Target.the("Fecha de Salida").
             located(By.xpath("//input[@title='Buscar']"));
     public static final Target INPUT_FECHA_REGRESO = Target.the("Fecha de Regreso").

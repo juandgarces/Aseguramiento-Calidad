@@ -1,8 +1,11 @@
 package co.com.devco.stepdefinitions;
 
 
+import co.com.devco.questions.ValidarImagenes;
+import co.com.devco.questions.ValidarImagenesGato;
 import co.com.devco.questions.ValidarImagenesPerro;
 import co.com.devco.questions.ValidarPagina;
+import co.com.devco.tasks.EsperarCarga;
 import co.com.devco.tasks.Ingresar;
 import co.com.devco.tasks.SeleccionarOpcion;
 import co.com.devco.utils.MyWebDriverFactory;
@@ -36,16 +39,43 @@ public class PetbookStepDefinitions {
     }
 
 
-    @Cuando("^Juan seleciona ver solo los perros$")
-    public void juanSelecionaVerSoloLosPerros() {
-        theActorInTheSpotlight().attemptsTo(SeleccionarOpcion.perro());
+    @Cuando("^Juan seleciona ver solo los \"([^\"]*)\"$")
+    public void juanSelecionaVerSoloLos(String filtro) {
+        theActorInTheSpotlight().attemptsTo(SeleccionarOpcion.deFiltro(filtro));
     }
 
+    @Cuando("^Juan espera a que la pagina cargue$")
+    public void juanEsperaAQueLaPaginaCargue() {
+        theActorInTheSpotlight().attemptsTo(EsperarCarga.dePagina());
+    }
+
+    @Cuando("^Juan seleciona ver solo los \"([^\"]*)\" carga las fotos de perros$")
+    public void juanSelecionaVerSoloLosCargaLasFotosDePerros(String filtro) {
+        theActorInTheSpotlight().attemptsTo(SeleccionarOpcion.deFiltro(filtro));
+    }
+
+    @Cuando("^Juan cambia para ver los \"([^\"]*)\"$")
+    public void juanCambiaParaVerLos(String filtro) {
+        theActorInTheSpotlight().attemptsTo(SeleccionarOpcion.deFiltro(filtro));
+    }
 
     @Entonces("^la pagina filtra las imagenes para mostrar solo los perros$")
     public void laPaginaFiltraLasImagenesParaMostrarSoloLosPerros() {
         theActorInTheSpotlight().should(seeThat(ValidarImagenesPerro.filtradas()));
     }
 
+    @Entonces("^la pagina filtra las imagenes para mostrar solo los gatos$")
+    public void laPaginaFiltraLasImagenesParaMostrarSoloLosGatos() {
+        theActorInTheSpotlight().should(seeThat(ValidarImagenesGato.filtradas()));
+    }
 
+    @Entonces("^la pagina muestra todas las imagenes de los animales$")
+    public void laPaginaMuestraTodasLasImagenesDeLosAnimales() {
+        theActorInTheSpotlight().should(seeThat(ValidarImagenes.cargadas()));
+    }
+
+    @Entonces("^la pagina cambia las imagenes de los perros por la de los gatos$")
+    public void laPaginaCambiaLasImagenesDeLosPerrosPorLaDeLosGatos() {
+        theActorInTheSpotlight().should(seeThat(ValidarImagenesGato.filtradas()));
+    }
 }
