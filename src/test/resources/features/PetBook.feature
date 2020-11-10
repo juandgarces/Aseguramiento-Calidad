@@ -5,6 +5,8 @@
     Quiero una pagina exclusiva para mascotas
     Para poder montar imagenes
 
-  Escenario: Ingresar a la pagina petbook
-    Cuando Juan busca en internt una pagina para publicar fotos de su mascota
-    Entonces debe ver el titulo "Pet Book Prueba Devops"
+  @testCase1 @Escenari1
+  Escenario: Visualizar que al seleccionar Perro se filtren las imagenes de los perros
+    Dado Que Juan ingresa a la pagina Pet Book
+    Cuando Juan seleciona ver solo los perros
+    Entonces la pagina filtra las imagenes para mostrar solo los perros
