@@ -6,6 +6,7 @@ import net.serenitybdd.screenplay.Question;
 import net.serenitybdd.screenplay.matchers.WebElementStateMatchers;
 import net.serenitybdd.screenplay.questions.Text;
 import net.serenitybdd.screenplay.waits.WaitUntil;
+import org.apache.xpath.operations.Bool;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -23,12 +24,13 @@ public class ValidarImagenesPerro implements Question<Boolean> {
 
         actor.attemptsTo(WaitUntil.the(PetbookHomePage.TITLE, WebElementStateMatchers.isPresent()).forNoMoreThan(30).seconds());
         WebElement industries = driver.findElement(By.xpath("//div[@class='row']/ul"));
-        List<WebElement> links = industries.findElements(By.tagName("li"));
+        List<WebElement> links = industries.findElements(By.tagName("img"));
+        Boolean contienePerro = false;
         for (int i = 0; i < links.size(); i++)
         {
-            String x = links.get(i).getText();
+            contienePerro = links.get(i).getAttribute("src").contains("perro");
         }
-        return Text.of(PetbookHomePage.TITLE).viewedBy(actor).asString().equals("title");
+        return contienePerro;
     }
 
 
