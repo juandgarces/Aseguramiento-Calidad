@@ -26,7 +26,7 @@ public class ValidarImagenesPerro implements Question<Boolean> {
         List<WebElement> links = industries.findElements(By.tagName("li"));
         for (int i = 0; i < links.size(); i++)
         {
-            String x = links.get(i).getText();
+            String x = links.get(i).getAttribute("src");
         }
         return Text.of(PetbookHomePage.TITLE).viewedBy(actor).asString().equals("title");
     }
