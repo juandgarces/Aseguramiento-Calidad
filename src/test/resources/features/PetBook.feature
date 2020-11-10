@@ -26,6 +26,13 @@
   @testCase4 @Escenario4
   Escenario: Visualizar que se pueda saltar del perfil de perro al de gato y las imagenes cambien
     Dado Que Juan ingresa a la pagina Pet Book
-    Cuando Juan seleciona ver solo los "perro" carga las fotos de perros
+    Cuando Juan seleciona ver solo los "perros" carga las fotos de perros
     Cuando Juan cambia para ver los "gatos"
     Entonces la pagina cambia las imagenes de los perros por la de los gatos
+
+  @testCase5 @Escenario5
+  Escenario: Visualizar que se pueda saltar del perfil de perro al de gato y las imagenes cambien
+    Dado Que Juan ingresa a la pagina Pet Book
+    Cuando Juan seleciona ver solo los "perros" carga las fotos de perros
+    Cuando Juan cambia para ver los "all" animales
+    Entonces la pagina muestra todas las imagenes de los animales

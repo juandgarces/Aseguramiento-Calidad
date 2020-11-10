@@ -33,10 +33,10 @@ public class SeleccionarOpcion implements Task {
                 actor.attemptsTo(Click.on(BT_GATO));
                 break;
             case "all":
-                actor.attemptsTo(Click.on(BT_PERRO));
+                actor.attemptsTo(Click.on(BT_ALL));
                 break;
             default:
-                actor.attemptsTo(Click.on(BT_PERRO));
+                actor.attemptsTo(Click.on(BT_ALL));
                 break;
         }
 

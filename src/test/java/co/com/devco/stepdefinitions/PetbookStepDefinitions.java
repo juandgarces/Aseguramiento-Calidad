@@ -59,6 +59,11 @@ public class PetbookStepDefinitions {
         theActorInTheSpotlight().attemptsTo(SeleccionarOpcion.deFiltro(filtro));
     }
 
+    @Cuando("^Juan cambia para ver los \"([^\"]*)\" animales$")
+    public void juanCambiaParaVerLosAnimales(String filtro) {
+        theActorInTheSpotlight().attemptsTo(SeleccionarOpcion.deFiltro(filtro));
+    }
+
     @Entonces("^la pagina filtra las imagenes para mostrar solo los perros$")
     public void laPaginaFiltraLasImagenesParaMostrarSoloLosPerros() {
         theActorInTheSpotlight().should(seeThat(ValidarImagenesPerro.filtradas()));
