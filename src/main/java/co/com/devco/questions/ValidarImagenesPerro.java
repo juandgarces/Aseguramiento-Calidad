@@ -25,12 +25,16 @@ public class ValidarImagenesPerro implements Question<Boolean> {
         actor.attemptsTo(WaitUntil.the(PetbookHomePage.TITLE, WebElementStateMatchers.isPresent()).forNoMoreThan(30).seconds());
         WebElement industries = driver.findElement(By.xpath("//div[@class='row']/ul"));
         List<WebElement> links = industries.findElements(By.tagName("img"));
-        Boolean contienePerro = false;
+        int contienePerro = 0;
         for (int i = 0; i < links.size(); i++)
         {
-            contienePerro = links.get(i).getAttribute("src").contains("perro");
+            if(links.get(i).getAttribute("src").contains("perro"));
+                contienePerro = contienePerro + 1 ;
         }
-        return contienePerro;
+        if(links.size() == contienePerro){
+            return true;
+        }else
+            return false;
     }
 
 
