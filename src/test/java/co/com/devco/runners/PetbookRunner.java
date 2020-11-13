@@ -8,8 +8,7 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
 		features = "src/test/resources/features/PetBook.feature",
-		glue = {"co.com.devco.stepdefinitions"},
-        tags = "@testCase1",
+		glue = "co.com.devco.stepdefinitions",
 		snippets = SnippetType.CAMELCASE
 )
 public class PetbookRunner {
