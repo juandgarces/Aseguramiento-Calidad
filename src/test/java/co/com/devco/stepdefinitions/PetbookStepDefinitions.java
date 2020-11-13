@@ -64,6 +64,12 @@ public class PetbookStepDefinitions {
         theActorInTheSpotlight().attemptsTo(SeleccionarOpcion.deFiltro(filtro));
     }
 
+    @Cuando("^Juan seleciona ver solo los \"([^\"]*)\" carga las fotos de gatos$")
+    public void juanSelecVerSoloLosCargaLasFotosDeGatos(String filtro) {
+        theActorInTheSpotlight().attemptsTo(SeleccionarOpcion.deFiltro(filtro));
+    }
+
+
     @Entonces("^la pagina filtra las imagenes para mostrar solo los perros$")
     public void laPaginaFiltraLasImagenesParaMostrarSoloLosPerros() {
         theActorInTheSpotlight().should(seeThat(ValidarImagenesPerro.filtradas()));
@@ -82,5 +88,15 @@ public class PetbookStepDefinitions {
     @Entonces("^la pagina cambia las imagenes de los perros por la de los gatos$")
     public void laPaginaCambiaLasImagenesDeLosPerrosPorLaDeLosGatos() {
         theActorInTheSpotlight().should(seeThat(ValidarImagenesGato.filtradas()));
+    }
+
+    @Entonces("^la pagina cambia las imagenes de los gatos por la de los perros$")
+    public void laPaginaCambiaLasImagenesDeLosGatosPorLaDeLosPerros() {
+        theActorInTheSpotlight().should(seeThat(ValidarImagenesPerro.filtradas()));
+    }
+
+    @Entonces("^la pagina cambia las imagenes de los gatos por todas las imagenes$")
+    public void laPaginaCambiaLasImagenesDeLosGatosPorTodasLasImagenes() {
+        theActorInTheSpotlight().should(seeThat(ValidarImagenes.cargadas()));
     }
 }
